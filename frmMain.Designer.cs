@@ -75,6 +75,7 @@
             this.btnResEdit.TabIndex = 1;
             this.btnResEdit.Text = "编辑";
             this.btnResEdit.UseVisualStyleBackColor = true;
+            this.btnResEdit.Click += new System.EventHandler(this.btnResEdit_Click);
             // 
             // listViewRes
             // 
@@ -115,6 +116,8 @@
             // checkBoxAllShow
             // 
             this.checkBoxAllShow.AutoSize = true;
+            this.checkBoxAllShow.Checked = true;
+            this.checkBoxAllShow.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxAllShow.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxAllShow.Location = new System.Drawing.Point(216, 22);
             this.checkBoxAllShow.Name = "checkBoxAllShow";
@@ -216,6 +219,7 @@
             this.btnListAllSelect.TabIndex = 2;
             this.btnListAllSelect.Text = "全选";
             this.btnListAllSelect.UseVisualStyleBackColor = true;
+            this.btnListAllSelect.Click += new System.EventHandler(this.btnListAllSelect_Click);
             // 
             // btnListRevSelect
             // 
@@ -225,6 +229,7 @@
             this.btnListRevSelect.TabIndex = 2;
             this.btnListRevSelect.Text = "反选";
             this.btnListRevSelect.UseVisualStyleBackColor = true;
+            this.btnListRevSelect.Click += new System.EventHandler(this.btnListRevSelect_Click);
             // 
             // btnListDefault
             // 

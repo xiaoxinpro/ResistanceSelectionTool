@@ -12,6 +12,8 @@ namespace ResistanceSelectionTool
     public partial class frmMain : Form
     {
         #region 字段
+        string FilePathResList;
+        string FileNameResList;
         List<double> ResListData = new List<double>();
         #endregion
 
@@ -29,6 +31,8 @@ namespace ResistanceSelectionTool
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
+            FilePathResList = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            FileNameResList = @"Res.list";
             comboBoxResUnit.SelectedIndex = 0;
             InitResList(listViewRes);
         }
@@ -51,7 +55,7 @@ namespace ResistanceSelectionTool
 
             //添加数据
             listView.BeginUpdate();
-            GetResListFileToListView(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Res.list", listViewRes);
+            GetResListFileToListView(FilePathResList + FileNameResList, listViewRes);
             listView.EndUpdate();
         }
 
@@ -126,6 +130,11 @@ namespace ResistanceSelectionTool
         }
         #endregion
 
+        /// <summary>
+        /// 计算按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCalc_Click(object sender, EventArgs e)
         {
             txtOutput.Clear();
@@ -135,6 +144,13 @@ namespace ResistanceSelectionTool
             resCalc.Start();
         }
 
+        /// <summary>
+        /// 计算结果返回事件
+        /// </summary>
+        /// <param name="status">状态</param>
+        /// <param name="message">信息</param>
+        /// <param name="percent">百分比</param>
+        /// <param name="value">具体数据数组</param>
         private void ResCalcReturn_Event(EnumResCalcStatus status, string message, double percent, double[] value)
         {
             if (status == EnumResCalcStatus.Done)
@@ -165,8 +181,44 @@ namespace ResistanceSelectionTool
 
             this.Invoke(new EventHandler(delegate
             {
-                progressBarResCalc.Value = Convert.ToInt32(percent);
+                progressBarResCalc.Value = Convert.ToInt32(percent) % (progressBarResCalc.Maximum + 1);
             }));
+        }
+
+        /// <summary>
+        /// 编辑按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnResEdit_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Explorer", "/select," + FilePathResList  + FileNameResList);
+        }
+
+        /// <summary>
+        /// 全选按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnListAllSelect_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listViewRes.Items.Count; i++)
+            {
+                listViewRes.Items[i].Checked = true;
+            }
+        }
+
+        /// <summary>
+        /// 反选按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnListRevSelect_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listViewRes.Items.Count; i++)
+            {
+                listViewRes.Items[i].Checked = !listViewRes.Items[i].Checked;
+            }
         }
     }
 }
