@@ -45,6 +45,7 @@
             this.btnListRevSelect = new System.Windows.Forms.Button();
             this.btnListDefault = new System.Windows.Forms.Button();
             this.btnResSave = new System.Windows.Forms.Button();
+            this.progressBarResCalc = new System.Windows.Forms.ProgressBar();
             this.groupBoxResSelect.SuspendLayout();
             this.groupBoxSite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numResCount)).BeginInit();
@@ -109,6 +110,7 @@
             this.btnCalc.TabIndex = 3;
             this.btnCalc.Text = "计算";
             this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // checkBoxAllShow
             // 
@@ -140,7 +142,7 @@
             this.numResCount.TabIndex = 1;
             this.numResCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numResCount.Value = new decimal(new int[] {
-            2,
+            4,
             0,
             0,
             0});
@@ -157,6 +159,7 @@
             // 
             // groupBoxOutput
             // 
+            this.groupBoxOutput.Controls.Add(this.progressBarResCalc);
             this.groupBoxOutput.Controls.Add(this.txtOutput);
             this.groupBoxOutput.Location = new System.Drawing.Point(218, 218);
             this.groupBoxOutput.Name = "groupBoxOutput";
@@ -170,7 +173,7 @@
             this.txtOutput.Location = new System.Drawing.Point(6, 20);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(488, 168);
+            this.txtOutput.Size = new System.Drawing.Size(488, 139);
             this.txtOutput.TabIndex = 0;
             // 
             // label2
@@ -190,6 +193,7 @@
             this.txtResValue.Name = "txtResValue";
             this.txtResValue.Size = new System.Drawing.Size(68, 23);
             this.txtResValue.TabIndex = 4;
+            this.txtResValue.Text = "1234";
             // 
             // comboBoxResUnit
             // 
@@ -240,6 +244,13 @@
             this.btnResSave.Text = "保存";
             this.btnResSave.UseVisualStyleBackColor = true;
             // 
+            // progressBarResCalc
+            // 
+            this.progressBarResCalc.Location = new System.Drawing.Point(6, 165);
+            this.progressBarResCalc.Name = "progressBarResCalc";
+            this.progressBarResCalc.Size = new System.Drawing.Size(488, 23);
+            this.progressBarResCalc.TabIndex = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -281,6 +292,7 @@
         private System.Windows.Forms.Button btnListRevSelect;
         private System.Windows.Forms.Button btnListAllSelect;
         private System.Windows.Forms.Button btnResSave;
+        private System.Windows.Forms.ProgressBar progressBarResCalc;
     }
 }
 

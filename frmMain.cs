@@ -11,6 +11,10 @@ namespace ResistanceSelectionTool
 {
     public partial class frmMain : Form
     {
+        #region 字段
+        List<double> ResListData = new List<double>();
+        #endregion
+
         public frmMain()
         {
             InitializeComponent();
@@ -54,6 +58,20 @@ namespace ResistanceSelectionTool
         #endregion
 
         #region 阻值列表方法
+        /// <summary>
+        /// 获取阻值列表中选中项
+        /// </summary>
+        /// <param name="listView">阻值列表控件</param>
+        /// <param name="listData">返回表格</param>
+        private void GetResSelectList(ListView listView, List<double> listData)
+        {
+            listData.Clear();
+            for (int i = 0; i < listView.CheckedItems.Count; i++)
+            {
+                listData.Add(Convert.ToDouble(listView.CheckedItems[i].SubItems[1].Text));
+            }
+        }
+
         /// <summary>
         /// 获取阻值列表到表格中
         /// </summary>
@@ -108,5 +126,47 @@ namespace ResistanceSelectionTool
         }
         #endregion
 
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            txtOutput.Clear();
+            GetResSelectList(listViewRes, ResListData);
+            ResCalc resCalc = new ResCalc(ResListData.ToArray(), Convert.ToDouble(txtResValue.Text), Convert.ToInt32(numResCount.Value));
+            resCalc.EventResCalcReturn += new ResCalc.DelegateResCalcReturn(ResCalcReturn_Event);
+            resCalc.Start();
+        }
+
+        private void ResCalcReturn_Event(EnumResCalcStatus status, string message, double percent, double[] value)
+        {
+            if (status == EnumResCalcStatus.Done)
+            {
+                this.Invoke(new EventHandler(delegate
+                {
+                    int len = value.Length;
+                    string log = string.Format("{0}个电阻并联最佳方案：{1}", len, value[0]);
+                    for (int i = 1; i < len; i++)
+                    {
+                        log += @" // " + value[i];
+                    }
+                    log += string.Format(" = {0:#.###}", ResCalc.CalcParallel(value));
+                    txtOutput.AppendText(log + "\r\n");
+                    if (percent >= 100)
+                    {
+                        txtOutput.AppendText(message);
+                    }
+                }));
+            }
+            else if (status == EnumResCalcStatus.Error)
+            {
+                this.Invoke(new EventHandler(delegate
+                {
+                    txtOutput.AppendText(message);
+                }));
+            }
+
+            this.Invoke(new EventHandler(delegate
+            {
+                progressBarResCalc.Value = Convert.ToInt32(percent);
+            }));
+        }
     }
 }
