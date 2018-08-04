@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ResistanceSelectionTool")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Resistance Selection Tool")]
+[assembly: AssemblyDescription("电阻并联选择工具")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("ResistanceSelectionTool")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Chishin")]
+[assembly: AssemblyProduct("Resistance Selection Tool")]
+[assembly: AssemblyCopyright("Copyright © Chishin 2018")]
+[assembly: AssemblyTrademark("Resistance Selection Tool")]
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型
