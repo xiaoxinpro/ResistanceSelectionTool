@@ -95,6 +95,12 @@ namespace ResistanceSelectionTool
             double[] realRes = ArrayResData;
             double[] arrBestResValue = new double[ArrayResData.Length];
 
+            if (ArrayResData.Length < ResCount)
+            {
+                EventResCalcReturn(EnumResCalcStatus.Error, "可用阻值太少，无法完成计算。", 0, new double[0]);
+                return;
+            }
+
             Stopwatch Watch = new Stopwatch();
             Watch.Start();
 
