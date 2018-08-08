@@ -131,17 +131,45 @@ namespace ResistanceSelectionTool
         #endregion
 
         /// <summary>
+        /// 获取设定的阻值
+        /// </summary>
+        /// <param name="value">阻值控件</param>
+        /// <param name="unit">单位控件</param>
+        /// <returns></returns>
+        private double GetSiteResValue(TextBox value, ComboBox unit)
+        {
+            try
+            {
+                return Convert.ToDouble(value.Text) * Math.Pow(1000, unit.SelectedIndex);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("GetSiteResValue出错：" + error);
+                return 0;
+            }
+        }
+
+        /// <summary>
         /// 计算按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnCalc_Click(object sender, EventArgs e)
         {
-            txtOutput.Clear();
-            GetResSelectList(listViewRes, ResListData);
-            ResCalc resCalc = new ResCalc(ResListData.ToArray(), Convert.ToDouble(txtResValue.Text), Convert.ToInt32(numResCount.Value));
-            resCalc.EventResCalcReturn += new ResCalc.DelegateResCalcReturn(ResCalcReturn_Event);
-            resCalc.Start();
+            double resValue = GetSiteResValue(txtResValue, comboBoxResUnit);
+            if (resValue > 0)
+            {
+                txtOutput.Clear();
+                GetResSelectList(listViewRes, ResListData);
+                ResCalc resCalc = new ResCalc(ResListData.ToArray(), resValue, Convert.ToInt32(numResCount.Value));
+                resCalc.EventResCalcReturn += new ResCalc.DelegateResCalcReturn(ResCalcReturn_Event);
+                resCalc.Start();
+            }
+            else
+            {
+                MessageBox.Show("输入的阻值有误，请重新输入！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtResValue.Focus();
+            }
         }
 
         /// <summary>

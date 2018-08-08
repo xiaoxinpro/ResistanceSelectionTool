@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBoxResSelect = new System.Windows.Forms.GroupBox();
+            this.btnListDefault = new System.Windows.Forms.Button();
+            this.btnListRevSelect = new System.Windows.Forms.Button();
+            this.btnListAllSelect = new System.Windows.Forms.Button();
+            this.btnResSave = new System.Windows.Forms.Button();
             this.btnResEdit = new System.Windows.Forms.Button();
             this.listViewRes = new System.Windows.Forms.ListView();
             this.groupBoxSite = new System.Windows.Forms.GroupBox();
+            this.comboBoxResUnit = new System.Windows.Forms.ComboBox();
+            this.txtResValue = new System.Windows.Forms.TextBox();
             this.btnCalc = new System.Windows.Forms.Button();
             this.checkBoxAllShow = new System.Windows.Forms.CheckBox();
             this.numResCount = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxOutput = new System.Windows.Forms.GroupBox();
-            this.txtOutput = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtResValue = new System.Windows.Forms.TextBox();
-            this.comboBoxResUnit = new System.Windows.Forms.ComboBox();
-            this.btnListAllSelect = new System.Windows.Forms.Button();
-            this.btnListRevSelect = new System.Windows.Forms.Button();
-            this.btnListDefault = new System.Windows.Forms.Button();
-            this.btnResSave = new System.Windows.Forms.Button();
             this.progressBarResCalc = new System.Windows.Forms.ProgressBar();
+            this.txtOutput = new System.Windows.Forms.TextBox();
             this.groupBoxResSelect.SuspendLayout();
             this.groupBoxSite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numResCount)).BeginInit();
@@ -66,6 +66,44 @@
             this.groupBoxResSelect.TabIndex = 0;
             this.groupBoxResSelect.TabStop = false;
             this.groupBoxResSelect.Text = "可选电阻选择";
+            // 
+            // btnListDefault
+            // 
+            this.btnListDefault.Location = new System.Drawing.Point(123, 20);
+            this.btnListDefault.Name = "btnListDefault";
+            this.btnListDefault.Size = new System.Drawing.Size(71, 23);
+            this.btnListDefault.TabIndex = 2;
+            this.btnListDefault.Text = "默认选择";
+            this.btnListDefault.UseVisualStyleBackColor = true;
+            // 
+            // btnListRevSelect
+            // 
+            this.btnListRevSelect.Location = new System.Drawing.Point(65, 20);
+            this.btnListRevSelect.Name = "btnListRevSelect";
+            this.btnListRevSelect.Size = new System.Drawing.Size(52, 23);
+            this.btnListRevSelect.TabIndex = 2;
+            this.btnListRevSelect.Text = "反选";
+            this.btnListRevSelect.UseVisualStyleBackColor = true;
+            this.btnListRevSelect.Click += new System.EventHandler(this.btnListRevSelect_Click);
+            // 
+            // btnListAllSelect
+            // 
+            this.btnListAllSelect.Location = new System.Drawing.Point(7, 20);
+            this.btnListAllSelect.Name = "btnListAllSelect";
+            this.btnListAllSelect.Size = new System.Drawing.Size(52, 23);
+            this.btnListAllSelect.TabIndex = 2;
+            this.btnListAllSelect.Text = "全选";
+            this.btnListAllSelect.UseVisualStyleBackColor = true;
+            this.btnListAllSelect.Click += new System.EventHandler(this.btnListAllSelect_Click);
+            // 
+            // btnResSave
+            // 
+            this.btnResSave.Location = new System.Drawing.Point(104, 371);
+            this.btnResSave.Name = "btnResSave";
+            this.btnResSave.Size = new System.Drawing.Size(90, 23);
+            this.btnResSave.TabIndex = 1;
+            this.btnResSave.Text = "保存";
+            this.btnResSave.UseVisualStyleBackColor = true;
             // 
             // btnResEdit
             // 
@@ -102,6 +140,28 @@
             this.groupBoxSite.TabStop = false;
             this.groupBoxSite.Text = "配置选项";
             // 
+            // comboBoxResUnit
+            // 
+            this.comboBoxResUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxResUnit.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxResUnit.Items.AddRange(new object[] {
+            "Ω",
+            "KΩ",
+            "MΩ"});
+            this.comboBoxResUnit.Location = new System.Drawing.Point(216, 52);
+            this.comboBoxResUnit.Name = "comboBoxResUnit";
+            this.comboBoxResUnit.Size = new System.Drawing.Size(60, 25);
+            this.comboBoxResUnit.TabIndex = 5;
+            // 
+            // txtResValue
+            // 
+            this.txtResValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtResValue.Location = new System.Drawing.Point(142, 52);
+            this.txtResValue.Name = "txtResValue";
+            this.txtResValue.Size = new System.Drawing.Size(68, 23);
+            this.txtResValue.TabIndex = 4;
+            this.txtResValue.Text = "1234";
+            // 
             // btnCalc
             // 
             this.btnCalc.Font = new System.Drawing.Font("宋体", 11F);
@@ -118,6 +178,7 @@
             this.checkBoxAllShow.AutoSize = true;
             this.checkBoxAllShow.Checked = true;
             this.checkBoxAllShow.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAllShow.Enabled = false;
             this.checkBoxAllShow.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxAllShow.Location = new System.Drawing.Point(216, 22);
             this.checkBoxAllShow.Name = "checkBoxAllShow";
@@ -150,6 +211,16 @@
             0,
             0});
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 14F);
+            this.label2.Location = new System.Drawing.Point(31, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "期望阻值：";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -171,6 +242,13 @@
             this.groupBoxOutput.TabStop = false;
             this.groupBoxOutput.Text = "结果输出";
             // 
+            // progressBarResCalc
+            // 
+            this.progressBarResCalc.Location = new System.Drawing.Point(6, 165);
+            this.progressBarResCalc.Name = "progressBarResCalc";
+            this.progressBarResCalc.Size = new System.Drawing.Size(488, 23);
+            this.progressBarResCalc.TabIndex = 1;
+            // 
             // txtOutput
             // 
             this.txtOutput.Location = new System.Drawing.Point(6, 20);
@@ -178,83 +256,6 @@
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(488, 139);
             this.txtOutput.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 14F);
-            this.label2.Location = new System.Drawing.Point(31, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "期望阻值：";
-            // 
-            // txtResValue
-            // 
-            this.txtResValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtResValue.Location = new System.Drawing.Point(142, 52);
-            this.txtResValue.Name = "txtResValue";
-            this.txtResValue.Size = new System.Drawing.Size(68, 23);
-            this.txtResValue.TabIndex = 4;
-            this.txtResValue.Text = "1234";
-            // 
-            // comboBoxResUnit
-            // 
-            this.comboBoxResUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxResUnit.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBoxResUnit.Items.AddRange(new object[] {
-            "Ω",
-            "KΩ",
-            "MΩ"});
-            this.comboBoxResUnit.Location = new System.Drawing.Point(216, 52);
-            this.comboBoxResUnit.Name = "comboBoxResUnit";
-            this.comboBoxResUnit.Size = new System.Drawing.Size(60, 25);
-            this.comboBoxResUnit.TabIndex = 5;
-            // 
-            // btnListAllSelect
-            // 
-            this.btnListAllSelect.Location = new System.Drawing.Point(7, 20);
-            this.btnListAllSelect.Name = "btnListAllSelect";
-            this.btnListAllSelect.Size = new System.Drawing.Size(52, 23);
-            this.btnListAllSelect.TabIndex = 2;
-            this.btnListAllSelect.Text = "全选";
-            this.btnListAllSelect.UseVisualStyleBackColor = true;
-            this.btnListAllSelect.Click += new System.EventHandler(this.btnListAllSelect_Click);
-            // 
-            // btnListRevSelect
-            // 
-            this.btnListRevSelect.Location = new System.Drawing.Point(65, 20);
-            this.btnListRevSelect.Name = "btnListRevSelect";
-            this.btnListRevSelect.Size = new System.Drawing.Size(52, 23);
-            this.btnListRevSelect.TabIndex = 2;
-            this.btnListRevSelect.Text = "反选";
-            this.btnListRevSelect.UseVisualStyleBackColor = true;
-            this.btnListRevSelect.Click += new System.EventHandler(this.btnListRevSelect_Click);
-            // 
-            // btnListDefault
-            // 
-            this.btnListDefault.Location = new System.Drawing.Point(123, 20);
-            this.btnListDefault.Name = "btnListDefault";
-            this.btnListDefault.Size = new System.Drawing.Size(71, 23);
-            this.btnListDefault.TabIndex = 2;
-            this.btnListDefault.Text = "默认选择";
-            this.btnListDefault.UseVisualStyleBackColor = true;
-            // 
-            // btnResSave
-            // 
-            this.btnResSave.Location = new System.Drawing.Point(104, 371);
-            this.btnResSave.Name = "btnResSave";
-            this.btnResSave.Size = new System.Drawing.Size(90, 23);
-            this.btnResSave.TabIndex = 1;
-            this.btnResSave.Text = "保存";
-            this.btnResSave.UseVisualStyleBackColor = true;
-            // 
-            // progressBarResCalc
-            // 
-            this.progressBarResCalc.Location = new System.Drawing.Point(6, 165);
-            this.progressBarResCalc.Name = "progressBarResCalc";
-            this.progressBarResCalc.Size = new System.Drawing.Size(488, 23);
-            this.progressBarResCalc.TabIndex = 1;
             // 
             // frmMain
             // 
