@@ -186,12 +186,12 @@ namespace ResistanceSelectionTool
                 this.Invoke(new EventHandler(delegate
                 {
                     int len = value.Length;
-                    string log = string.Format("{0}个电阻并联最佳方案：{1}", len, value[0]);
+                    string log = string.Format("{0}个电阻并联最佳方案：{1}", len, ResValueFormat(value[0]));
                     for (int i = 1; i < len; i++)
                     {
-                        log += @" // " + value[i];
+                        log += @" // " + ResValueFormat(value[i]);
                     }
-                    log += string.Format(" = {0:#.###}", ResCalc.CalcParallel(value));
+                    log += string.Format(" = {0:#.###}", ResValueFormat(ResCalc.CalcParallel(value)));
                     txtOutput.AppendText(log + "\r\n");
                     if (percent >= 100)
                     {

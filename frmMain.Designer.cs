@@ -251,6 +251,7 @@
             // 
             // txtOutput
             // 
+            this.txtOutput.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtOutput.Location = new System.Drawing.Point(6, 20);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
