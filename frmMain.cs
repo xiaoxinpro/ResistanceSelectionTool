@@ -67,12 +67,32 @@ namespace ResistanceSelectionTool
         /// </summary>
         /// <param name="listView">阻值列表控件</param>
         /// <param name="listData">返回表格</param>
-        private void GetResSelectList(ListView listView, List<double> listData)
+        private void GetResSelectList(ListView listView, List<double> listData, double resValue = 0)
         {
             listData.Clear();
             for (int i = 0; i < listView.CheckedItems.Count; i++)
             {
                 listData.Add(Convert.ToDouble(listView.CheckedItems[i].SubItems[1].Text));
+            }
+            listData.Sort();
+            if (resValue > 0)
+            {
+                int i;
+                for (i = 0; i < listData.Count; i++)
+                {
+                    if (listData[i] > resValue)
+                    {
+                        break;
+                    }
+                }
+                if (i < listData.Count)
+                {
+                    listData.RemoveRange(0, i);
+                }
+                else
+                {
+                    listData.Clear();
+                }
             }
         }
 
@@ -160,7 +180,7 @@ namespace ResistanceSelectionTool
             if (resValue > 0)
             {
                 txtOutput.Clear();
-                GetResSelectList(listViewRes, ResListData);
+                GetResSelectList(listViewRes, ResListData, resValue);
                 ResCalc resCalc = new ResCalc(ResListData.ToArray(), resValue, Convert.ToInt32(numResCount.Value));
                 resCalc.EventResCalcReturn += new ResCalc.DelegateResCalcReturn(ResCalcReturn_Event);
                 resCalc.Start();
