@@ -54,6 +54,8 @@
             // 
             // groupBoxResSelect
             // 
+            this.groupBoxResSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxResSelect.Controls.Add(this.btnListDefault);
             this.groupBoxResSelect.Controls.Add(this.btnListRevSelect);
             this.groupBoxResSelect.Controls.Add(this.btnListAllSelect);
@@ -98,6 +100,7 @@
             // 
             // btnResSave
             // 
+            this.btnResSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnResSave.Location = new System.Drawing.Point(104, 371);
             this.btnResSave.Name = "btnResSave";
             this.btnResSave.Size = new System.Drawing.Size(90, 23);
@@ -107,6 +110,7 @@
             // 
             // btnResEdit
             // 
+            this.btnResEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnResEdit.Location = new System.Drawing.Point(7, 371);
             this.btnResEdit.Name = "btnResEdit";
             this.btnResEdit.Size = new System.Drawing.Size(90, 23);
@@ -117,6 +121,8 @@
             // 
             // listViewRes
             // 
+            this.listViewRes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewRes.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listViewRes.Location = new System.Drawing.Point(7, 49);
             this.listViewRes.Name = "listViewRes";
@@ -126,6 +132,8 @@
             // 
             // groupBoxSite
             // 
+            this.groupBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxSite.Controls.Add(this.comboBoxResUnit);
             this.groupBoxSite.Controls.Add(this.txtResValue);
             this.groupBoxSite.Controls.Add(this.btnCalc);
@@ -135,7 +143,7 @@
             this.groupBoxSite.Controls.Add(this.label1);
             this.groupBoxSite.Location = new System.Drawing.Point(218, 12);
             this.groupBoxSite.Name = "groupBoxSite";
-            this.groupBoxSite.Size = new System.Drawing.Size(500, 200);
+            this.groupBoxSite.Size = new System.Drawing.Size(453, 126);
             this.groupBoxSite.TabIndex = 1;
             this.groupBoxSite.TabStop = false;
             this.groupBoxSite.Text = "配置选项";
@@ -164,8 +172,9 @@
             // 
             // btnCalc
             // 
+            this.btnCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalc.Font = new System.Drawing.Font("宋体", 11F);
-            this.btnCalc.Location = new System.Drawing.Point(394, 162);
+            this.btnCalc.Location = new System.Drawing.Point(347, 88);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(100, 32);
             this.btnCalc.TabIndex = 3;
@@ -233,39 +242,48 @@
             // 
             // groupBoxOutput
             // 
+            this.groupBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxOutput.Controls.Add(this.progressBarResCalc);
             this.groupBoxOutput.Controls.Add(this.txtOutput);
-            this.groupBoxOutput.Location = new System.Drawing.Point(218, 218);
+            this.groupBoxOutput.Location = new System.Drawing.Point(218, 144);
             this.groupBoxOutput.Name = "groupBoxOutput";
-            this.groupBoxOutput.Size = new System.Drawing.Size(500, 194);
+            this.groupBoxOutput.Size = new System.Drawing.Size(453, 268);
             this.groupBoxOutput.TabIndex = 2;
             this.groupBoxOutput.TabStop = false;
             this.groupBoxOutput.Text = "结果输出";
             // 
             // progressBarResCalc
             // 
-            this.progressBarResCalc.Location = new System.Drawing.Point(6, 165);
+            this.progressBarResCalc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBarResCalc.Location = new System.Drawing.Point(6, 239);
             this.progressBarResCalc.Name = "progressBarResCalc";
-            this.progressBarResCalc.Size = new System.Drawing.Size(488, 23);
+            this.progressBarResCalc.Size = new System.Drawing.Size(441, 23);
             this.progressBarResCalc.TabIndex = 1;
             // 
             // txtOutput
             // 
+            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOutput.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtOutput.Location = new System.Drawing.Point(6, 20);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(488, 139);
+            this.txtOutput.Size = new System.Drawing.Size(441, 213);
             this.txtOutput.TabIndex = 0;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 420);
+            this.ClientSize = new System.Drawing.Size(683, 420);
             this.Controls.Add(this.groupBoxOutput);
             this.Controls.Add(this.groupBoxSite);
             this.Controls.Add(this.groupBoxResSelect);
+            this.MinimumSize = new System.Drawing.Size(580, 320);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "电阻并联选择工具";
