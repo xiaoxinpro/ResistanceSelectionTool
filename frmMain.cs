@@ -127,6 +127,24 @@ namespace ResistanceSelectionTool
         }
 
         /// <summary>
+        /// 保存列表数据
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="listView"></param>
+        private void SaveListViewToResListFile(string path, ListView listView)
+        {
+            if (listView.Items.Count > 0)
+            {
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                foreach (ListViewItem item in listView.Items)
+                {
+                    dic.Add(item.SubItems[1].Text, item.Checked.ToString());
+                }
+                ListFileHelper.WriteFile(path, dic);
+            }
+        }
+
+        /// <summary>
         /// 阻值格式化
         /// </summary>
         /// <param name="value">阻值大小</param>
@@ -267,6 +285,16 @@ namespace ResistanceSelectionTool
             {
                 listViewRes.Items[i].Checked = !listViewRes.Items[i].Checked;
             }
+        }
+
+        /// <summary>
+        /// 保存按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnResSave_Click(object sender, EventArgs e)
+        {
+            SaveListViewToResListFile(FilePathResList + FileNameResList, listViewRes);
         }
     }
 }

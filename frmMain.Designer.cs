@@ -107,6 +107,7 @@
             this.btnResSave.TabIndex = 1;
             this.btnResSave.Text = "保存";
             this.btnResSave.UseVisualStyleBackColor = true;
+            this.btnResSave.Click += new System.EventHandler(this.btnResSave_Click);
             // 
             // btnResEdit
             // 
