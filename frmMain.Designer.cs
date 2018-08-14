@@ -77,6 +77,7 @@
             this.btnListDefault.TabIndex = 2;
             this.btnListDefault.Text = "默认选择";
             this.btnListDefault.UseVisualStyleBackColor = true;
+            this.btnListDefault.Click += new System.EventHandler(this.btnListDefault_Click);
             // 
             // btnListRevSelect
             // 

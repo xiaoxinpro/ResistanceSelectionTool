@@ -109,6 +109,7 @@ namespace ResistanceSelectionTool
                 ListFileHelper.ReadFile(path, dic);
                 if (dic.Count > 0)
                 {
+                    listView.Items.Clear();
                     foreach (KeyValuePair<string, string> item in dic)
                     {
                         bool isCheck = Convert.ToBoolean(item.Value);
@@ -295,6 +296,18 @@ namespace ResistanceSelectionTool
         private void btnResSave_Click(object sender, EventArgs e)
         {
             SaveListViewToResListFile(FilePathResList + FileNameResList, listViewRes);
+        }
+
+        /// <summary>
+        /// 默认选择按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnListDefault_Click(object sender, EventArgs e)
+        {
+            listViewRes.BeginUpdate();
+            GetResListFileToListView(FilePathResList + FileNameResList, listViewRes);
+            listViewRes.EndUpdate();
         }
     }
 }
