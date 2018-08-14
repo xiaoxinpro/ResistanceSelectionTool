@@ -17,12 +17,12 @@ namespace ResistanceSelectionTool
         List<double> ResListData = new List<double>();
         #endregion
 
+        #region 初始化
+
         public frmMain()
         {
             InitializeComponent();
         }
-
-        #region 初始化
 
         /// <summary>
         /// 加载窗体
@@ -169,6 +169,7 @@ namespace ResistanceSelectionTool
         }
         #endregion
 
+        #region 阻值计算方法
         /// <summary>
         /// 获取设定的阻值
         /// </summary>
@@ -251,7 +252,9 @@ namespace ResistanceSelectionTool
                 progressBarResCalc.Value = Convert.ToInt32(percent) % (progressBarResCalc.Maximum + 1);
             }));
         }
+        #endregion
 
+        #region 按钮方法
         /// <summary>
         /// 编辑按钮
         /// </summary>
@@ -309,5 +312,6 @@ namespace ResistanceSelectionTool
             GetResListFileToListView(FilePathResList + FileNameResList, listViewRes);
             listViewRes.EndUpdate();
         }
+        #endregion
     }
 }

@@ -62,6 +62,7 @@
             this.groupBoxResSelect.Controls.Add(this.btnResSave);
             this.groupBoxResSelect.Controls.Add(this.btnResEdit);
             this.groupBoxResSelect.Controls.Add(this.listViewRes);
+            this.groupBoxResSelect.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBoxResSelect.Location = new System.Drawing.Point(12, 12);
             this.groupBoxResSelect.Name = "groupBoxResSelect";
             this.groupBoxResSelect.Size = new System.Drawing.Size(200, 400);
@@ -71,6 +72,7 @@
             // 
             // btnListDefault
             // 
+            this.btnListDefault.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.btnListDefault.Location = new System.Drawing.Point(123, 20);
             this.btnListDefault.Name = "btnListDefault";
             this.btnListDefault.Size = new System.Drawing.Size(71, 23);
@@ -81,6 +83,7 @@
             // 
             // btnListRevSelect
             // 
+            this.btnListRevSelect.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.btnListRevSelect.Location = new System.Drawing.Point(65, 20);
             this.btnListRevSelect.Name = "btnListRevSelect";
             this.btnListRevSelect.Size = new System.Drawing.Size(52, 23);
@@ -91,6 +94,7 @@
             // 
             // btnListAllSelect
             // 
+            this.btnListAllSelect.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.btnListAllSelect.Location = new System.Drawing.Point(7, 20);
             this.btnListAllSelect.Name = "btnListAllSelect";
             this.btnListAllSelect.Size = new System.Drawing.Size(52, 23);
@@ -102,6 +106,7 @@
             // btnResSave
             // 
             this.btnResSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnResSave.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.btnResSave.Location = new System.Drawing.Point(104, 371);
             this.btnResSave.Name = "btnResSave";
             this.btnResSave.Size = new System.Drawing.Size(90, 23);
@@ -113,6 +118,7 @@
             // btnResEdit
             // 
             this.btnResEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnResEdit.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.btnResEdit.Location = new System.Drawing.Point(7, 371);
             this.btnResEdit.Name = "btnResEdit";
             this.btnResEdit.Size = new System.Drawing.Size(90, 23);
@@ -143,6 +149,7 @@
             this.groupBoxSite.Controls.Add(this.numResCount);
             this.groupBoxSite.Controls.Add(this.label2);
             this.groupBoxSite.Controls.Add(this.label1);
+            this.groupBoxSite.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBoxSite.Location = new System.Drawing.Point(218, 12);
             this.groupBoxSite.Name = "groupBoxSite";
             this.groupBoxSite.Size = new System.Drawing.Size(453, 126);
@@ -175,7 +182,7 @@
             // btnCalc
             // 
             this.btnCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalc.Font = new System.Drawing.Font("宋体", 11F);
+            this.btnCalc.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCalc.Location = new System.Drawing.Point(347, 88);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(100, 32);
@@ -249,6 +256,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxOutput.Controls.Add(this.progressBarResCalc);
             this.groupBoxOutput.Controls.Add(this.txtOutput);
+            this.groupBoxOutput.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBoxOutput.Location = new System.Drawing.Point(218, 144);
             this.groupBoxOutput.Name = "groupBoxOutput";
             this.groupBoxOutput.Size = new System.Drawing.Size(453, 268);
