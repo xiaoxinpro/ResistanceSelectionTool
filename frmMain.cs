@@ -298,7 +298,15 @@ namespace ResistanceSelectionTool
         /// <param name="e"></param>
         private void btnResSave_Click(object sender, EventArgs e)
         {
-            SaveListViewToResListFile(FilePathResList + FileNameResList, listViewRes);
+            try
+            {
+                SaveListViewToResListFile(FilePathResList + FileNameResList, listViewRes);
+                MessageBox.Show("保存完成", "保存", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "保存失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
