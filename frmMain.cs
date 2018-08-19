@@ -34,6 +34,7 @@ namespace ResistanceSelectionTool
             FilePathResList = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             FileNameResList = @"Res.list";
             comboBoxResUnit.SelectedIndex = 0;
+            ListFileHelper.OutputResFile(FilePathResList + FileNameResList, "ResistanceSelectionTool.Res.list");
             InitResList(listViewRes);
         }
 
