@@ -6,5 +6,4 @@
 ## 下载地址
 [ResistanceSelectionTool.exe](https://github.com/xiaoxinpro/ResistanceSelectionTool/raw/master/bin/Debug/ResistanceSelectionTool.exe)
 
-[Res.list](https://github.com/xiaoxinpro/ResistanceSelectionTool/raw/master/bin/Debug/Res.list)
 
