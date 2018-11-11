@@ -315,6 +315,7 @@
             this.btnCalcBoostRes.TabIndex = 5;
             this.btnCalcBoostRes.Text = "计算";
             this.btnCalcBoostRes.UseVisualStyleBackColor = true;
+            this.btnCalcBoostRes.Click += new System.EventHandler(this.btnCalcBoostRes_Click);
             // 
             // pictureBox1
             // 

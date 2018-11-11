@@ -322,5 +322,11 @@ namespace ResistanceSelectionTool
             listViewRes.EndUpdate();
         }
         #endregion
+
+        private void btnCalcBoostRes_Click(object sender, EventArgs e)
+        {
+            ResBoostMode resBoostMode = new ResBoostMode(ResListData.ToArray());
+            resBoostMode.Start();
+        }
     }
 }

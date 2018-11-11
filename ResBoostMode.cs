@@ -23,7 +23,7 @@ namespace ResistanceSelectionTool
         #endregion
 
         #region 构造函数
-        public ResBoostMode(double[] data, double Vfb = 0.6, double Vpwm = 0, double VoutMin = 3, double VoutMax = 9)
+        public ResBoostMode(double[] data, double Vfb = 1.212, double Vpwm = 3.3, double VoutMin = 0, double VoutMax = 200)
         {
             ArrayResData = data;
             VolFB = Vfb;
@@ -61,12 +61,44 @@ namespace ResistanceSelectionTool
         {
             isRun = false;
         }
+
+        public static double CalcParallel(params double[] arrValue)
+        {
+            double ret = 1 / arrValue[0];
+            for (int i = 1; i < arrValue.Length; i++)
+            {
+                ret = ret + (1 / arrValue[i]);
+            }
+            return 1 / ret;
+        }
         #endregion
 
         #region 计算处理函数
         public void ThreadResBoostModeProcess_Event()
         {
-
+            foreach (double RW1 in ArrayResData)
+            {
+                foreach (double RW2 in ArrayResData)
+                {
+                    foreach (double RW3 in ArrayResData)
+                    {
+                        double RW23 = CalcParallel(RW2, RW3);
+                        double RW13 = CalcParallel(RW1, RW3);
+                        double VoutMin = (VolFB - RW13 * VolPWM / RW13 + RW2) * (RW23 + RW1) / RW23;
+                        double VoutMax = (VolFB - 0) * (RW23 + RW1) / RW23;
+                        if(VoutMax < VoutMin)
+                        {
+                            double tmp = VoutMin;
+                            VoutMin = VoutMax;
+                            VoutMax = tmp;
+                        }
+                        if (VolOutMax > VoutMax || VolOutMin < VoutMin) 
+                        {
+                            Console.WriteLine(string.Format("RW1={0}, RW2={1}, RW3={2}, VoutMax={3}, VoutMin={4}", RW1, RW2, RW3, VoutMax, VoutMin));
+                        }
+                    }
+                }
+            }
         }
         #endregion
     }
