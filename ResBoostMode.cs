@@ -16,18 +16,20 @@ namespace ResistanceSelectionTool
 
         #region 属性
         public double VolFB { get; set; }
-        public double VolOut { get; set; }
         public double VolPWM { get; set; }
+        public double VolOutMin { get; set; }
+        public double VolOutMax { get; set; }
         public double[] ArrayResData { get; set; }
         #endregion
 
         #region 构造函数
-        public ResBoostMode(double[] data, double Vfb = 0.6, double Vout = 9, double Vpwm = 0)
+        public ResBoostMode(double[] data, double Vfb = 0.6, double Vpwm = 0, double VoutMin = 3, double VoutMax = 9)
         {
             ArrayResData = data;
             VolFB = Vfb;
-            VolOut = Vout;
             VolPWM = Vpwm;
+            VolOutMin = VoutMin;
+            VolOutMax = VoutMax;
             ThreadResBoostModeProcess = new Thread(new ThreadStart(ThreadResBoostModeProcess_Event));
             ThreadResBoostModeProcess.IsBackground = true;
         }

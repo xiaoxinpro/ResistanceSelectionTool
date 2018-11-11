@@ -36,35 +36,37 @@
             this.btnResEdit = new System.Windows.Forms.Button();
             this.listViewRes = new System.Windows.Forms.ListView();
             this.groupBoxSite = new System.Windows.Forms.GroupBox();
+            this.tabResCalc = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBoxResUnit = new System.Windows.Forms.ComboBox();
-            this.txtResValue = new System.Windows.Forms.TextBox();
             this.btnCalc = new System.Windows.Forms.Button();
+            this.txtResValue = new System.Windows.Forms.TextBox();
             this.checkBoxAllShow = new System.Windows.Forms.CheckBox();
             this.numResCount = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnCalcBoostRes = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtVolPWM = new System.Windows.Forms.TextBox();
+            this.txtVolOutMin = new System.Windows.Forms.TextBox();
+            this.txtVolFB = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBoxOutput = new System.Windows.Forms.GroupBox();
             this.progressBarResCalc = new System.Windows.Forms.ProgressBar();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.tabResCalc = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCalcBoostRes = new System.Windows.Forms.Button();
+            this.txtVolOutMax = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxResSelect.SuspendLayout();
             this.groupBoxSite.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numResCount)).BeginInit();
-            this.groupBoxOutput.SuspendLayout();
             this.tabResCalc.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numResCount)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBoxOutput.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxResSelect
@@ -166,6 +168,33 @@
             this.groupBoxSite.TabStop = false;
             this.groupBoxSite.Text = "配置选项";
             // 
+            // tabResCalc
+            // 
+            this.tabResCalc.Controls.Add(this.tabPage1);
+            this.tabResCalc.Controls.Add(this.tabPage2);
+            this.tabResCalc.Location = new System.Drawing.Point(6, 24);
+            this.tabResCalc.Name = "tabResCalc";
+            this.tabResCalc.SelectedIndex = 0;
+            this.tabResCalc.Size = new System.Drawing.Size(441, 160);
+            this.tabResCalc.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.comboBoxResUnit);
+            this.tabPage1.Controls.Add(this.btnCalc);
+            this.tabPage1.Controls.Add(this.txtResValue);
+            this.tabPage1.Controls.Add(this.checkBoxAllShow);
+            this.tabPage1.Controls.Add(this.numResCount);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(433, 128);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "电阻并联";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // comboBoxResUnit
             // 
             this.comboBoxResUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -179,15 +208,6 @@
             this.comboBoxResUnit.Size = new System.Drawing.Size(60, 25);
             this.comboBoxResUnit.TabIndex = 5;
             // 
-            // txtResValue
-            // 
-            this.txtResValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtResValue.Location = new System.Drawing.Point(103, 45);
-            this.txtResValue.Name = "txtResValue";
-            this.txtResValue.Size = new System.Drawing.Size(68, 23);
-            this.txtResValue.TabIndex = 4;
-            this.txtResValue.Text = "1234";
-            // 
             // btnCalc
             // 
             this.btnCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -199,6 +219,15 @@
             this.btnCalc.Text = "计算";
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
+            // 
+            // txtResValue
+            // 
+            this.txtResValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtResValue.Location = new System.Drawing.Point(103, 45);
+            this.txtResValue.Name = "txtResValue";
+            this.txtResValue.Size = new System.Drawing.Size(68, 23);
+            this.txtResValue.TabIndex = 4;
+            this.txtResValue.Text = "1234";
             // 
             // checkBoxAllShow
             // 
@@ -238,6 +267,16 @@
             0,
             0});
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 14F);
+            this.label1.Location = new System.Drawing.Point(6, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "并联数量：";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -248,15 +287,92 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "期望阻值：";
             // 
-            // label1
+            // tabPage2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 14F);
-            this.label1.Location = new System.Drawing.Point(6, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "并联数量：";
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.btnCalcBoostRes);
+            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.txtVolPWM);
+            this.tabPage2.Controls.Add(this.txtVolOutMax);
+            this.tabPage2.Controls.Add(this.txtVolOutMin);
+            this.tabPage2.Controls.Add(this.txtVolFB);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(433, 128);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "升压芯片电阻";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnCalcBoostRes
+            // 
+            this.btnCalcBoostRes.Location = new System.Drawing.Point(334, 89);
+            this.btnCalcBoostRes.Name = "btnCalcBoostRes";
+            this.btnCalcBoostRes.Size = new System.Drawing.Size(93, 33);
+            this.btnCalcBoostRes.TabIndex = 5;
+            this.btnCalcBoostRes.Text = "计算";
+            this.btnCalcBoostRes.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ResistanceSelectionTool.Properties.Resources.BoostCircuit;
+            this.pictureBox1.Location = new System.Drawing.Point(192, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(136, 122);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtVolPWM
+            // 
+            this.txtVolPWM.Location = new System.Drawing.Point(86, 40);
+            this.txtVolPWM.Name = "txtVolPWM";
+            this.txtVolPWM.Size = new System.Drawing.Size(100, 25);
+            this.txtVolPWM.TabIndex = 3;
+            // 
+            // txtVolOutMin
+            // 
+            this.txtVolOutMin.Location = new System.Drawing.Point(86, 71);
+            this.txtVolOutMin.Name = "txtVolOutMin";
+            this.txtVolOutMin.Size = new System.Drawing.Size(36, 25);
+            this.txtVolOutMin.TabIndex = 3;
+            // 
+            // txtVolFB
+            // 
+            this.txtVolFB.Location = new System.Drawing.Point(86, 9);
+            this.txtVolFB.Name = "txtVolFB";
+            this.txtVolFB.Size = new System.Drawing.Size(100, 25);
+            this.txtVolFB.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 19);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "PWM电压：";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 19);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "目标电压：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "FB电压：";
             // 
             // groupBoxOutput
             // 
@@ -294,117 +410,21 @@
             this.txtOutput.Size = new System.Drawing.Size(441, 185);
             this.txtOutput.TabIndex = 0;
             // 
-            // tabResCalc
+            // txtVolOutMax
             // 
-            this.tabResCalc.Controls.Add(this.tabPage1);
-            this.tabResCalc.Controls.Add(this.tabPage2);
-            this.tabResCalc.Location = new System.Drawing.Point(6, 24);
-            this.tabResCalc.Name = "tabResCalc";
-            this.tabResCalc.SelectedIndex = 0;
-            this.tabResCalc.Size = new System.Drawing.Size(441, 160);
-            this.tabResCalc.TabIndex = 6;
+            this.txtVolOutMax.Location = new System.Drawing.Point(150, 71);
+            this.txtVolOutMax.Name = "txtVolOutMax";
+            this.txtVolOutMax.Size = new System.Drawing.Size(36, 25);
+            this.txtVolOutMax.TabIndex = 3;
             // 
-            // tabPage1
+            // label6
             // 
-            this.tabPage1.Controls.Add(this.comboBoxResUnit);
-            this.tabPage1.Controls.Add(this.btnCalc);
-            this.tabPage1.Controls.Add(this.txtResValue);
-            this.tabPage1.Controls.Add(this.checkBoxAllShow);
-            this.tabPage1.Controls.Add(this.numResCount);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(433, 128);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "电阻并联";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnCalcBoostRes);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(433, 128);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "升压芯片电阻";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 19);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "FB电压：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 19);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "目标电压：";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 19);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "PWM电压：";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(86, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(86, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 25);
-            this.textBox2.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(86, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 25);
-            this.textBox3.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ResistanceSelectionTool.Properties.Resources.BoostCircuit;
-            this.pictureBox1.Location = new System.Drawing.Point(192, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnCalcBoostRes
-            // 
-            this.btnCalcBoostRes.Location = new System.Drawing.Point(352, 89);
-            this.btnCalcBoostRes.Name = "btnCalcBoostRes";
-            this.btnCalcBoostRes.Size = new System.Drawing.Size(75, 33);
-            this.btnCalcBoostRes.TabIndex = 5;
-            this.btnCalcBoostRes.Text = "计算";
-            this.btnCalcBoostRes.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(129, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "-";
             // 
             // frmMain
             // 
@@ -421,15 +441,15 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBoxResSelect.ResumeLayout(false);
             this.groupBoxSite.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numResCount)).EndInit();
-            this.groupBoxOutput.ResumeLayout(false);
-            this.groupBoxOutput.PerformLayout();
             this.tabResCalc.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numResCount)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBoxOutput.ResumeLayout(false);
+            this.groupBoxOutput.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -459,12 +479,14 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnCalcBoostRes;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtVolPWM;
+        private System.Windows.Forms.TextBox txtVolOutMin;
+        private System.Windows.Forms.TextBox txtVolFB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtVolOutMax;
     }
 }
 
