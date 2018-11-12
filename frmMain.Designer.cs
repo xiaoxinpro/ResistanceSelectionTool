@@ -46,9 +46,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnCalcBoostRes = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtVolPWM = new System.Windows.Forms.TextBox();
+            this.txtVolOutMax = new System.Windows.Forms.TextBox();
             this.txtVolOutMin = new System.Windows.Forms.TextBox();
             this.txtVolFB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,8 +59,8 @@
             this.groupBoxOutput = new System.Windows.Forms.GroupBox();
             this.progressBarResCalc = new System.Windows.Forms.ProgressBar();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.txtVolOutMax = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBoxResSelect.SuspendLayout();
             this.groupBoxSite.SuspendLayout();
             this.tabResCalc.SuspendLayout();
@@ -163,7 +165,7 @@
             this.groupBoxSite.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBoxSite.Location = new System.Drawing.Point(218, 12);
             this.groupBoxSite.Name = "groupBoxSite";
-            this.groupBoxSite.Size = new System.Drawing.Size(453, 190);
+            this.groupBoxSite.Size = new System.Drawing.Size(453, 196);
             this.groupBoxSite.TabIndex = 1;
             this.groupBoxSite.TabStop = false;
             this.groupBoxSite.Text = "配置选项";
@@ -175,7 +177,7 @@
             this.tabResCalc.Location = new System.Drawing.Point(6, 24);
             this.tabResCalc.Name = "tabResCalc";
             this.tabResCalc.SelectedIndex = 0;
-            this.tabResCalc.Size = new System.Drawing.Size(441, 160);
+            this.tabResCalc.Size = new System.Drawing.Size(441, 166);
             this.tabResCalc.TabIndex = 6;
             // 
             // tabPage1
@@ -292,26 +294,37 @@
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.btnCalcBoostRes);
             this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.txtVolPWM);
             this.tabPage2.Controls.Add(this.txtVolOutMax);
             this.tabPage2.Controls.Add(this.txtVolOutMin);
             this.tabPage2.Controls.Add(this.txtVolFB);
             this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(433, 128);
+            this.tabPage2.Size = new System.Drawing.Size(433, 134);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "升压芯片电阻";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(129, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "-";
+            // 
             // btnCalcBoostRes
             // 
-            this.btnCalcBoostRes.Location = new System.Drawing.Point(334, 89);
+            this.btnCalcBoostRes.Location = new System.Drawing.Point(350, 89);
             this.btnCalcBoostRes.Name = "btnCalcBoostRes";
-            this.btnCalcBoostRes.Size = new System.Drawing.Size(93, 33);
+            this.btnCalcBoostRes.Size = new System.Drawing.Size(77, 33);
             this.btnCalcBoostRes.TabIndex = 5;
             this.btnCalcBoostRes.Text = "计算";
             this.btnCalcBoostRes.UseVisualStyleBackColor = true;
@@ -322,7 +335,7 @@
             this.pictureBox1.Image = global::ResistanceSelectionTool.Properties.Resources.BoostCircuit;
             this.pictureBox1.Location = new System.Drawing.Point(192, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 122);
+            this.pictureBox1.Size = new System.Drawing.Size(152, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -333,6 +346,15 @@
             this.txtVolPWM.Name = "txtVolPWM";
             this.txtVolPWM.Size = new System.Drawing.Size(100, 25);
             this.txtVolPWM.TabIndex = 3;
+            this.txtVolPWM.Text = "3.3";
+            // 
+            // txtVolOutMax
+            // 
+            this.txtVolOutMax.Location = new System.Drawing.Point(150, 71);
+            this.txtVolOutMax.Name = "txtVolOutMax";
+            this.txtVolOutMax.Size = new System.Drawing.Size(36, 25);
+            this.txtVolOutMax.TabIndex = 3;
+            this.txtVolOutMax.Text = "20";
             // 
             // txtVolOutMin
             // 
@@ -340,6 +362,7 @@
             this.txtVolOutMin.Name = "txtVolOutMin";
             this.txtVolOutMin.Size = new System.Drawing.Size(36, 25);
             this.txtVolOutMin.TabIndex = 3;
+            this.txtVolOutMin.Text = "3.5";
             // 
             // txtVolFB
             // 
@@ -347,6 +370,7 @@
             this.txtVolFB.Name = "txtVolFB";
             this.txtVolFB.Size = new System.Drawing.Size(100, 25);
             this.txtVolFB.TabIndex = 3;
+            this.txtVolFB.Text = "0.6";
             // 
             // label5
             // 
@@ -383,9 +407,9 @@
             this.groupBoxOutput.Controls.Add(this.progressBarResCalc);
             this.groupBoxOutput.Controls.Add(this.txtOutput);
             this.groupBoxOutput.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBoxOutput.Location = new System.Drawing.Point(218, 208);
+            this.groupBoxOutput.Location = new System.Drawing.Point(218, 214);
             this.groupBoxOutput.Name = "groupBoxOutput";
-            this.groupBoxOutput.Size = new System.Drawing.Size(453, 240);
+            this.groupBoxOutput.Size = new System.Drawing.Size(453, 234);
             this.groupBoxOutput.TabIndex = 2;
             this.groupBoxOutput.TabStop = false;
             this.groupBoxOutput.Text = "结果输出";
@@ -394,7 +418,7 @@
             // 
             this.progressBarResCalc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarResCalc.Location = new System.Drawing.Point(6, 211);
+            this.progressBarResCalc.Location = new System.Drawing.Point(6, 205);
             this.progressBarResCalc.Name = "progressBarResCalc";
             this.progressBarResCalc.Size = new System.Drawing.Size(441, 23);
             this.progressBarResCalc.TabIndex = 1;
@@ -408,24 +432,25 @@
             this.txtOutput.Location = new System.Drawing.Point(6, 20);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(441, 185);
+            this.txtOutput.Size = new System.Drawing.Size(441, 179);
             this.txtOutput.TabIndex = 0;
             // 
-            // txtVolOutMax
+            // textBox1
             // 
-            this.txtVolOutMax.Location = new System.Drawing.Point(150, 71);
-            this.txtVolOutMax.Name = "txtVolOutMax";
-            this.txtVolOutMax.Size = new System.Drawing.Size(36, 25);
-            this.txtVolOutMax.TabIndex = 3;
+            this.textBox1.Location = new System.Drawing.Point(86, 102);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "2";
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(129, 74);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 19);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "-";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 19);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "偏差电压：";
             // 
             // frmMain
             // 
@@ -488,6 +513,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVolOutMax;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
     }
 }
 
