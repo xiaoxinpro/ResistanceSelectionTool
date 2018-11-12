@@ -19,17 +19,19 @@ namespace ResistanceSelectionTool
         public double VolPWM { get; set; }
         public double VolOutMin { get; set; }
         public double VolOutMax { get; set; }
+        public double VolBias { get; set; }
         public double[] ArrayResData { get; set; }
         #endregion
 
         #region 构造函数
-        public ResBoostMode(double[] data, double Vfb = 1.212, double Vpwm = 3.3, double VoutMin = 3, double VoutMax = 20)
+        public ResBoostMode(double[] data, double Vfb = 0.6, double Vpwm = 3.3, double VoutMin = 3, double VoutMax = 20, double Vbias = 2)
         {
             ArrayResData = data;
             VolFB = Vfb;
             VolPWM = Vpwm;
             VolOutMin = VoutMin;
             VolOutMax = VoutMax;
+            VolBias = Vbias;
             ThreadResBoostModeProcess = new Thread(new ThreadStart(ThreadResBoostModeProcess_Event));
             ThreadResBoostModeProcess.IsBackground = true;
         }
@@ -76,6 +78,8 @@ namespace ResistanceSelectionTool
         #region 计算处理函数
         public void ThreadResBoostModeProcess_Event()
         {
+            double cntPercent = 0;
+            double sumPercent = Math.Pow(ArrayResData.Length, 3);
             foreach (double RW1 in ArrayResData)
             {
                 foreach (double RW2 in ArrayResData)
@@ -85,9 +89,12 @@ namespace ResistanceSelectionTool
                         double[] arrVout = CalculateOutputVoltage(RW1, RW2, RW3);
                         double VoutMin = arrVout[0];
                         double VoutMax = arrVout[1];
-                        if (VolOutMax > VoutMax && VolOutMin < VoutMin)
+                        cntPercent++;
+                        if (VoutMax <= VolOutMax + VolBias && VoutMax >=VolOutMax - VolBias && VoutMin <= VolOutMin + VolBias && VoutMin >= VolOutMin - VolBias)
                         {
-                            Console.WriteLine(string.Format("RW1={0}, RW2={1}, RW3={2}, VoutMax={3:F3}, VoutMin={4:F3}", RW1, RW2, RW3, VoutMax, VoutMin));
+                            double percent = cntPercent / sumPercent * 100;
+                            EventResBoostModeReturn(EnumResCalcStatus.Done, "阶段性完成", percent, new double[] { RW1, RW2, RW3, VoutMax, VoutMin });
+                            //Console.WriteLine(string.Format("RW1={0}, RW2={1}, RW3={2}, VoutMax={3:F3}, VoutMin={4:F3}", RW1, RW2, RW3, VoutMax, VoutMin));
                         }
                     }
                 }

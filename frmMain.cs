@@ -294,8 +294,8 @@ namespace ResistanceSelectionTool
                             log += string.Format("RW1={0:#.###}， ", ResValueFormat(value[0]));
                             log += string.Format("RW2={0:#.###}， ", ResValueFormat(value[1]));
                             log += string.Format("RW3={0:#.###}， ", ResValueFormat(value[2]));
-                            log += string.Format("VoutMin={0:#.###}， ", ResValueFormat(value[3]));
-                            log += string.Format("VoutMax={0:#.###}。", ResValueFormat(value[4]));
+                            log += string.Format("VoutMin={0:#.###}V， ", (value[3]));
+                            log += string.Format("VoutMax={0:#.###}V。", (value[4]));
                             txtOutput.AppendText(log + "\r\n");
                         }
                         if (percent >= 100)
