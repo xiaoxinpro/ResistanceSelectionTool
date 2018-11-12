@@ -49,18 +49,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnCalcBoostRes = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtVolPWM = new System.Windows.Forms.TextBox();
             this.txtVolOutMax = new System.Windows.Forms.TextBox();
             this.txtVolOutMin = new System.Windows.Forms.TextBox();
             this.txtVolFB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBoxOutput = new System.Windows.Forms.GroupBox();
             this.progressBarResCalc = new System.Windows.Forms.ProgressBar();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBoxResSelect.SuspendLayout();
             this.groupBoxSite.SuspendLayout();
             this.tabResCalc.SuspendLayout();
@@ -192,7 +192,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(433, 128);
+            this.tabPage1.Size = new System.Drawing.Size(433, 134);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "电阻并联";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -340,6 +340,14 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(86, 102);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "2";
+            // 
             // txtVolPWM
             // 
             this.txtVolPWM.Location = new System.Drawing.Point(86, 40);
@@ -380,6 +388,15 @@
             this.label5.Size = new System.Drawing.Size(82, 19);
             this.label5.TabIndex = 2;
             this.label5.Text = "PWM电压：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 19);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "偏差电压：";
             // 
             // label4
             // 
@@ -432,25 +449,9 @@
             this.txtOutput.Location = new System.Drawing.Point(6, 20);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOutput.Size = new System.Drawing.Size(441, 179);
             this.txtOutput.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(86, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "2";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 19);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "偏差电压：";
             // 
             // frmMain
             // 
