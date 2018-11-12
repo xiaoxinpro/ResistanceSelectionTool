@@ -170,7 +170,7 @@ namespace ResistanceSelectionTool
         }
         #endregion
 
-        #region 阻值计算方法
+        #region 阻值并联计算方法
         /// <summary>
         /// 获取设定的阻值
         /// </summary>
@@ -255,6 +255,68 @@ namespace ResistanceSelectionTool
         }
         #endregion
 
+        #region 升压模块阻值计算方法
+        /// <summary>
+        /// 计算按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCalcBoostRes_Click(object sender, EventArgs e)
+        {
+            GetResSelectList(listViewRes, ResListData);
+            ResBoostMode resBoostMode = new ResBoostMode(ResListData.ToArray());
+            resBoostMode.EventResBoostModeReturn += ResBoostMode_EventResBoostModeReturn;
+            resBoostMode.Start();
+        }
+
+        /// <summary>
+        /// 升压模块电阻事件
+        /// </summary>
+        /// <param name="status">状态</param>
+        /// <param name="message">信息</param>
+        /// <param name="percent">百分比</param>
+        /// <param name="value">具体数据数组</param>
+        private void ResBoostMode_EventResBoostModeReturn(EnumResCalcStatus status, string message, double percent, double[] value)
+        {
+            this.Invoke(new EventHandler(delegate
+            {
+                switch (status)
+                {
+                    case EnumResCalcStatus.Start:
+                        break;
+                    case EnumResCalcStatus.Run:
+                        break;
+                    case EnumResCalcStatus.Done:
+                        int len = value.Length;
+                        if (len >= 5)
+                        {
+                            string log = "升压模块电阻计算结果：";
+                            log += string.Format("RW1={0:#.###}， ", ResValueFormat(value[0]));
+                            log += string.Format("RW2={0:#.###}， ", ResValueFormat(value[1]));
+                            log += string.Format("RW3={0:#.###}， ", ResValueFormat(value[2]));
+                            log += string.Format("VoutMin={0:#.###}， ", ResValueFormat(value[3]));
+                            log += string.Format("VoutMax={0:#.###}。", ResValueFormat(value[4]));
+                            txtOutput.AppendText(log + "\r\n");
+                        }
+                        if (percent >= 100)
+                        {
+                            txtOutput.AppendText(message);
+                        }
+                        break;
+                    case EnumResCalcStatus.Wait:
+                        break;
+                    case EnumResCalcStatus.Error:
+                        txtOutput.AppendText(message);
+                        break;
+                    default:
+                        break;
+                }
+                progressBarResCalc.Value = Convert.ToInt32(percent) % (progressBarResCalc.Maximum + 1);
+            }));
+        }
+
+        #endregion
+
         #region 按钮方法
         /// <summary>
         /// 编辑按钮
@@ -323,11 +385,5 @@ namespace ResistanceSelectionTool
         }
         #endregion
 
-        private void btnCalcBoostRes_Click(object sender, EventArgs e)
-        {
-            GetResSelectList(listViewRes, ResListData);
-            ResBoostMode resBoostMode = new ResBoostMode(ResListData.ToArray());
-            resBoostMode.Start();
-        }
     }
 }
