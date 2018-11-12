@@ -325,6 +325,7 @@ namespace ResistanceSelectionTool
 
         private void btnCalcBoostRes_Click(object sender, EventArgs e)
         {
+            GetResSelectList(listViewRes, ResListData);
             ResBoostMode resBoostMode = new ResBoostMode(ResListData.ToArray());
             resBoostMode.Start();
         }

@@ -23,7 +23,7 @@ namespace ResistanceSelectionTool
         #endregion
 
         #region 构造函数
-        public ResBoostMode(double[] data, double Vfb = 1.212, double Vpwm = 3.3, double VoutMin = 0, double VoutMax = 200)
+        public ResBoostMode(double[] data, double Vfb = 1.212, double Vpwm = 3.3, double VoutMin = 3, double VoutMax = 20)
         {
             ArrayResData = data;
             VolFB = Vfb;
@@ -82,22 +82,31 @@ namespace ResistanceSelectionTool
                 {
                     foreach (double RW3 in ArrayResData)
                     {
-                        double RW23 = CalcParallel(RW2, RW3);
-                        double RW13 = CalcParallel(RW1, RW3);
-                        double VoutMin = (VolFB - RW13 * VolPWM / RW13 + RW2) * (RW23 + RW1) / RW23;
-                        double VoutMax = (VolFB - 0) * (RW23 + RW1) / RW23;
-                        if(VoutMax < VoutMin)
+                        double[] arrVout = CalculateOutputVoltage(RW1, RW2, RW3);
+                        double VoutMin = arrVout[0];
+                        double VoutMax = arrVout[1];
+                        if (VolOutMax > VoutMax && VolOutMin < VoutMin)
                         {
-                            double tmp = VoutMin;
-                            VoutMin = VoutMax;
-                            VoutMax = tmp;
-                        }
-                        if (VolOutMax > VoutMax || VolOutMin < VoutMin) 
-                        {
-                            Console.WriteLine(string.Format("RW1={0}, RW2={1}, RW3={2}, VoutMax={3}, VoutMin={4}", RW1, RW2, RW3, VoutMax, VoutMin));
+                            Console.WriteLine(string.Format("RW1={0}, RW2={1}, RW3={2}, VoutMax={3:F3}, VoutMin={4:F3}", RW1, RW2, RW3, VoutMax, VoutMin));
                         }
                     }
                 }
+            }
+        }
+
+        private double[] CalculateOutputVoltage(double RW1, double RW2, double RW3)
+        {
+            double RW23 = CalcParallel(RW2, RW3);
+            double RW13 = CalcParallel(RW1, RW3);
+            double VoutMin = (VolFB - RW13 * VolPWM / (RW13 + RW2)) * (RW23 + RW1) / RW23;
+            double VoutMax = (VolFB - 0) * (RW23 + RW1) / RW23;
+            if (VoutMax < VoutMin)
+            {
+                return new double[] { VoutMax, VoutMin };
+            }
+            else
+            {
+                return new double[] { VoutMin, VoutMax };
             }
         }
         #endregion
