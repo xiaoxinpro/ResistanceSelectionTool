@@ -49,7 +49,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnCalcBoostRes = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtVolBias = new System.Windows.Forms.TextBox();
             this.txtVolPWM = new System.Windows.Forms.TextBox();
             this.txtVolOutMax = new System.Windows.Forms.TextBox();
             this.txtVolOutMin = new System.Windows.Forms.TextBox();
@@ -294,7 +294,7 @@
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.btnCalcBoostRes);
             this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.txtVolBias);
             this.tabPage2.Controls.Add(this.txtVolPWM);
             this.tabPage2.Controls.Add(this.txtVolOutMax);
             this.tabPage2.Controls.Add(this.txtVolOutMin);
@@ -340,13 +340,13 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // txtVolBias
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "2";
+            this.txtVolBias.Location = new System.Drawing.Point(86, 102);
+            this.txtVolBias.Name = "txtVolBias";
+            this.txtVolBias.Size = new System.Drawing.Size(100, 25);
+            this.txtVolBias.TabIndex = 3;
+            this.txtVolBias.Text = "2";
             // 
             // txtVolPWM
             // 
@@ -514,7 +514,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVolOutMax;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtVolBias;
         private System.Windows.Forms.Label label7;
     }
 }

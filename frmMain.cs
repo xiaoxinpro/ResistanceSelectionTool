@@ -263,9 +263,21 @@ namespace ResistanceSelectionTool
         /// <param name="e"></param>
         private void btnCalcBoostRes_Click(object sender, EventArgs e)
         {
+            txtOutput.Clear();
             GetResSelectList(listViewRes, ResListData);
             ResBoostMode resBoostMode = new ResBoostMode(ResListData.ToArray());
             resBoostMode.EventResBoostModeReturn += ResBoostMode_EventResBoostModeReturn;
+            resBoostMode.VolFB = Convert.ToDouble(txtVolFB.Text);
+            resBoostMode.VolPWM = Convert.ToDouble(txtVolPWM.Text);
+            resBoostMode.VolOutMin = Convert.ToDouble(txtVolOutMin.Text);
+            resBoostMode.VolOutMax = Convert.ToDouble(txtVolOutMax.Text);
+            if (resBoostMode.VolOutMin > resBoostMode.VolOutMax)
+            {
+                double tmp = resBoostMode.VolOutMin;
+                resBoostMode.VolOutMin = resBoostMode.VolOutMax;
+                resBoostMode.VolOutMax = tmp;
+            }
+            resBoostMode.VolBias = Convert.ToDouble(txtVolBias.Text);
             resBoostMode.Start();
         }
 
