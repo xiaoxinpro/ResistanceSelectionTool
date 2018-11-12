@@ -93,7 +93,7 @@ namespace ResistanceSelectionTool
                         if (VoutMax <= VolOutMax + VolBias && VoutMax >=VolOutMax - VolBias && VoutMin <= VolOutMin + VolBias && VoutMin >= VolOutMin - VolBias)
                         {
                             double percent = cntPercent / sumPercent * 100;
-                            EventResBoostModeReturn(EnumResCalcStatus.Done, "阶段性完成", percent, new double[] { RW1, RW2, RW3, VoutMax, VoutMin });
+                            EventResBoostModeReturn(EnumResCalcStatus.Done, "阶段性完成", percent, new double[] { RW1, RW2, RW3, VoutMin, VoutMax });
                             //Console.WriteLine(string.Format("RW1={0}, RW2={1}, RW3={2}, VoutMax={3:F3}, VoutMin={4:F3}", RW1, RW2, RW3, VoutMax, VoutMin));
                         }
                     }
