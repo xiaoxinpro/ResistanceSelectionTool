@@ -176,10 +176,10 @@
             this.tabPage1.Controls.Add(this.numResCount);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(433, 134);
+            this.tabPage1.Size = new System.Drawing.Size(445, 158);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "电阻并联";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@
             // 
             this.btnCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalc.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCalc.Location = new System.Drawing.Point(327, 90);
+            this.btnCalc.Location = new System.Drawing.Point(339, 114);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(100, 32);
             this.btnCalc.TabIndex = 5;
@@ -454,7 +454,7 @@
             this.MinimumSize = new System.Drawing.Size(580, 320);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "电阻并联选择工具";
+            this.Text = "电阻选择工具";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBoxResSelect.ResumeLayout(false);
             this.tabResCalc.ResumeLayout(false);
