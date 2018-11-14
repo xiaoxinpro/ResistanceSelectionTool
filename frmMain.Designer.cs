@@ -60,6 +60,7 @@
             this.groupBoxOutput = new System.Windows.Forms.GroupBox();
             this.progressBarResCalc = new System.Windows.Forms.ProgressBar();
             this.txtOutput = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBoxResSelect.SuspendLayout();
             this.tabResCalc.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -67,6 +68,10 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxOutput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxResSelect
@@ -157,14 +162,15 @@
             // 
             // tabResCalc
             // 
-            this.tabResCalc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabResCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabResCalc.Controls.Add(this.tabPage1);
             this.tabResCalc.Controls.Add(this.tabPage2);
-            this.tabResCalc.Location = new System.Drawing.Point(218, 12);
+            this.tabResCalc.Location = new System.Drawing.Point(0, 0);
             this.tabResCalc.Name = "tabResCalc";
             this.tabResCalc.SelectedIndex = 0;
-            this.tabResCalc.Size = new System.Drawing.Size(453, 184);
+            this.tabResCalc.Size = new System.Drawing.Size(453, 181);
             this.tabResCalc.TabIndex = 6;
             // 
             // tabPage1
@@ -179,7 +185,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(445, 158);
+            this.tabPage1.Size = new System.Drawing.Size(445, 155);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "电阻并联";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -201,7 +207,7 @@
             // 
             this.btnCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalc.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCalc.Location = new System.Drawing.Point(339, 114);
+            this.btnCalc.Location = new System.Drawing.Point(339, 117);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(100, 32);
             this.btnCalc.TabIndex = 5;
@@ -293,7 +299,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(445, 158);
+            this.tabPage2.Size = new System.Drawing.Size(445, 155);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "升压芯片电阻";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -310,7 +316,7 @@
             // btnCalcBoostRes
             // 
             this.btnCalcBoostRes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalcBoostRes.Location = new System.Drawing.Point(362, 119);
+            this.btnCalcBoostRes.Location = new System.Drawing.Point(362, 116);
             this.btnCalcBoostRes.Name = "btnCalcBoostRes";
             this.btnCalcBoostRes.Size = new System.Drawing.Size(77, 33);
             this.btnCalcBoostRes.TabIndex = 6;
@@ -320,12 +326,13 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::ResistanceSelectionTool.Properties.Resources.BoostCircuit;
             this.pictureBox1.Location = new System.Drawing.Point(192, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 152);
+            this.pictureBox1.Size = new System.Drawing.Size(164, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -414,9 +421,9 @@
             this.groupBoxOutput.Controls.Add(this.progressBarResCalc);
             this.groupBoxOutput.Controls.Add(this.txtOutput);
             this.groupBoxOutput.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBoxOutput.Location = new System.Drawing.Point(218, 198);
+            this.groupBoxOutput.Location = new System.Drawing.Point(0, -1);
             this.groupBoxOutput.Name = "groupBoxOutput";
-            this.groupBoxOutput.Size = new System.Drawing.Size(453, 250);
+            this.groupBoxOutput.Size = new System.Drawing.Size(453, 245);
             this.groupBoxOutput.TabIndex = 2;
             this.groupBoxOutput.TabStop = false;
             this.groupBoxOutput.Text = "结果输出";
@@ -425,7 +432,7 @@
             // 
             this.progressBarResCalc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarResCalc.Location = new System.Drawing.Point(6, 221);
+            this.progressBarResCalc.Location = new System.Drawing.Point(6, 216);
             this.progressBarResCalc.Name = "progressBarResCalc";
             this.progressBarResCalc.Size = new System.Drawing.Size(441, 23);
             this.progressBarResCalc.TabIndex = 1;
@@ -440,16 +447,37 @@
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(441, 195);
+            this.txtOutput.Size = new System.Drawing.Size(441, 190);
             this.txtOutput.TabIndex = 0;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(218, 20);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.tabResCalc);
+            this.splitContainer1.Panel1MinSize = 180;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBoxOutput);
+            this.splitContainer1.Panel2MinSize = 100;
+            this.splitContainer1.Size = new System.Drawing.Size(453, 428);
+            this.splitContainer1.SplitterDistance = 180;
+            this.splitContainer1.TabIndex = 7;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 456);
-            this.Controls.Add(this.tabResCalc);
-            this.Controls.Add(this.groupBoxOutput);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBoxResSelect);
             this.MinimumSize = new System.Drawing.Size(580, 320);
             this.Name = "frmMain";
@@ -466,6 +494,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxOutput.ResumeLayout(false);
             this.groupBoxOutput.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -504,6 +536,7 @@
         private System.Windows.Forms.TextBox txtVolOutMax;
         private System.Windows.Forms.TextBox txtVolBias;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 
