@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ResistanceSelectionTool
 {
@@ -10,8 +12,7 @@ namespace ResistanceSelectionTool
     {
 
         #region 字段
-        private Thread ThreadResBoostModeProcess;
-        private bool isRun = false;
+        private Task TaskResBoost;
         #endregion
 
         #region 属性
@@ -32,8 +33,7 @@ namespace ResistanceSelectionTool
             VolOutMin = VoutMin;
             VolOutMax = VoutMax;
             VolBias = Vbias;
-            ThreadResBoostModeProcess = new Thread(new ThreadStart(ThreadResBoostModeProcess_Event));
-            ThreadResBoostModeProcess.IsBackground = true;
+            TaskResBoost = new Task(() => ThreadResBoostModeProcess_Event());
         }
         #endregion
 
@@ -55,13 +55,12 @@ namespace ResistanceSelectionTool
         #region 公共函数
         public void Start()
         {
-            isRun = true;
-            ThreadResBoostModeProcess.Start();
+            TaskResBoost.Start();
         }
 
         public void Stop()
         {
-            isRun = false;
+            TaskResBoost.Dispose();
         }
 
         public static double CalcParallel(params double[] arrValue)
@@ -78,8 +77,14 @@ namespace ResistanceSelectionTool
         #region 计算处理函数
         public void ThreadResBoostModeProcess_Event()
         {
+            int cntResult = 0;
             double cntPercent = 0;
             double sumPercent = Math.Pow(ArrayResData.Length, 3);
+
+            //开始计时
+            Stopwatch Watch = new Stopwatch();
+            Watch.Start();
+
             foreach (double RW1 in ArrayResData)
             {
                 foreach (double RW2 in ArrayResData)
@@ -94,11 +99,15 @@ namespace ResistanceSelectionTool
                         {
                             double percent = cntPercent / sumPercent * 100;
                             EventResBoostModeReturn(EnumResCalcStatus.Done, "阶段性完成", percent, new double[] { RW1, RW2, RW3, VoutMin, VoutMax });
+                            cntResult++;
                             //Console.WriteLine(string.Format("RW1={0}, RW2={1}, RW3={2}, VoutMax={3:F3}, VoutMin={4:F3}", RW1, RW2, RW3, VoutMax, VoutMin));
                         }
                     }
                 }
             }
+            Watch.Stop();
+            long watchTime = Watch.ElapsedMilliseconds;//花费时间
+            EventResBoostModeReturn(EnumResCalcStatus.Done, string.Format("计算完成，用时：{0:0.###}秒，得出{1}种方案。", Watch.Elapsed.TotalSeconds, cntResult), 100, new double[0] { });
         }
 
         private double[] CalculateOutputVoltage(double RW1, double RW2, double RW3)
