@@ -261,11 +261,12 @@ namespace ResistanceSelectionTool
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private ResBoostMode resBoostMode;
         private void btnCalcBoostRes_Click(object sender, EventArgs e)
         {
             txtOutput.Clear();
             GetResSelectList(listViewRes, ResListData);
-            ResBoostMode resBoostMode = new ResBoostMode(ResListData.ToArray());
+            resBoostMode = new ResBoostMode(ResListData.ToArray());
             resBoostMode.EventResBoostModeReturn += ResBoostMode_EventResBoostModeReturn;
             resBoostMode.VolFB = Convert.ToDouble(txtVolFB.Text);
             resBoostMode.VolPWM = Convert.ToDouble(txtVolPWM.Text);
