@@ -256,6 +256,86 @@ namespace ResistanceSelectionTool
         }
         #endregion
 
+        #region 分压电阻计算方法
+        private ResVoltageDivider resVoltageDivider;
+
+        /// <summary>
+        /// 分压电阻计算按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnVDCalc_Click(object sender, EventArgs e)
+        {
+            txtOutput.Clear();
+            GetResSelectList(listViewRes, ResListData);
+            resVoltageDivider = new ResVoltageDivider(ResListData.ToArray());
+            resVoltageDivider.EventResVoltageDividerReturn += ResVoltageDivider_EventResVoltageDividerReturn;
+            resVoltageDivider.VolIn = Convert.ToDouble(txtVDVolInput.Text);
+            resVoltageDivider.VolOut = Convert.ToDouble(txtVDVolOutput.Text);
+            resVoltageDivider.VolBias = Convert.ToDouble(txtVDVolBias.Text);
+            resVoltageDivider.IsResultVolOut = radioVDVout.Checked;
+            if (resVoltageDivider.VolIn <= resVoltageDivider.VolOut)
+            {
+                MessageBox.Show("输入电压应大于输出电压！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            resVoltageDivider.Start();
+        }
+
+        /// <summary>
+        /// 分压电阻事件
+        /// </summary>
+        /// <param name="status">状态</param>
+        /// <param name="message">信息</param>
+        /// <param name="percent">百分比</param>
+        /// <param name="value">固体数据数组</param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void ResVoltageDivider_EventResVoltageDividerReturn(EnumResCalcStatus status, string message, double percent, double[] value)
+        {
+            this.Invoke(new EventHandler(delegate
+            {
+                switch (status)
+                {
+                    case EnumResCalcStatus.Start:
+                        break;
+                    case EnumResCalcStatus.Run:
+                        break;
+                    case EnumResCalcStatus.Done:
+                        int len = value.Length;
+                        if (len >= 3)
+                        {
+                            string log = "分压电阻计算结果：";
+                            log += string.Format("RW1={0:#.###}， ", ResValueFormat(value[0]));
+                            log += string.Format("RW2={0:#.###}， ", ResValueFormat(value[1]));
+                            if (resVoltageDivider.IsResultVolOut)
+                            {
+                                log += string.Format("Vout={0:#.###}V， ", (value[2]));
+                            }
+                            else
+                            {
+                                log += string.Format("Vin={0:#.###}V， ", (value[2]));
+                            }
+                            txtOutput.AppendText(log + "\r\n");
+                        }
+                        if (percent >= 100)
+                        {
+                            txtOutput.AppendText(message);
+                        }
+                        break;
+                    case EnumResCalcStatus.Wait:
+                        break;
+                    case EnumResCalcStatus.Error:
+                        txtOutput.AppendText(message);
+                        break;
+                    default:
+                        break;
+                }
+                progressBarResCalc.Value = Convert.ToInt32(percent) % (progressBarResCalc.Maximum + 1);
+            }));
+        }
+
+        #endregion
+
         #region 升压模块阻值计算方法
         /// <summary>
         /// 计算按钮
@@ -398,6 +478,7 @@ namespace ResistanceSelectionTool
             listViewRes.EndUpdate();
         }
         #endregion
+
 
     }
 }

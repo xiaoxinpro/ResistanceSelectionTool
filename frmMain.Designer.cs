@@ -47,7 +47,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCalcBoostRes = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtVolBias = new System.Windows.Forms.TextBox();
             this.txtVolPWM = new System.Windows.Forms.TextBox();
             this.txtVolOutMax = new System.Windows.Forms.TextBox();
@@ -61,17 +60,32 @@
             this.progressBarResCalc = new System.Windows.Forms.ProgressBar();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnVDCalc = new System.Windows.Forms.Button();
+            this.txtVDVolBias = new System.Windows.Forms.TextBox();
+            this.txtVDVolOutput = new System.Windows.Forms.TextBox();
+            this.txtVDVolInput = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.radioVDVin = new System.Windows.Forms.RadioButton();
+            this.radioVDVout = new System.Windows.Forms.RadioButton();
             this.groupBoxResSelect.SuspendLayout();
             this.tabResCalc.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numResCount)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxOutput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxResSelect
@@ -154,6 +168,7 @@
             this.listViewRes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewRes.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listViewRes.HideSelection = false;
             this.listViewRes.Location = new System.Drawing.Point(7, 49);
             this.listViewRes.Name = "listViewRes";
             this.listViewRes.Size = new System.Drawing.Size(187, 352);
@@ -166,6 +181,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabResCalc.Controls.Add(this.tabPage1);
+            this.tabResCalc.Controls.Add(this.tabPage3);
             this.tabResCalc.Controls.Add(this.tabPage2);
             this.tabResCalc.Location = new System.Drawing.Point(0, 0);
             this.tabResCalc.Name = "tabResCalc";
@@ -286,7 +302,6 @@
             // 
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.btnCalcBoostRes);
-            this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.txtVolBias);
             this.tabPage2.Controls.Add(this.txtVolPWM);
             this.tabPage2.Controls.Add(this.txtVolOutMax);
@@ -296,6 +311,7 @@
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -323,19 +339,6 @@
             this.btnCalcBoostRes.Text = "计算";
             this.btnCalcBoostRes.UseVisualStyleBackColor = true;
             this.btnCalcBoostRes.Click += new System.EventHandler(this.btnCalcBoostRes_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::ResistanceSelectionTool.Properties.Resources.BoostCircuit;
-            this.pictureBox1.Location = new System.Drawing.Point(192, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 149);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // txtVolBias
             // 
@@ -472,6 +475,147 @@
             this.splitContainer1.SplitterDistance = 180;
             this.splitContainer1.TabIndex = 7;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.radioVDVout);
+            this.tabPage3.Controls.Add(this.radioVDVin);
+            this.tabPage3.Controls.Add(this.pictureBox2);
+            this.tabPage3.Controls.Add(this.btnVDCalc);
+            this.tabPage3.Controls.Add(this.txtVDVolBias);
+            this.tabPage3.Controls.Add(this.txtVDVolOutput);
+            this.tabPage3.Controls.Add(this.txtVDVolInput);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(445, 155);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "分压电阻";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnVDCalc
+            // 
+            this.btnVDCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVDCalc.Location = new System.Drawing.Point(362, 114);
+            this.btnVDCalc.Name = "btnVDCalc";
+            this.btnVDCalc.Size = new System.Drawing.Size(77, 33);
+            this.btnVDCalc.TabIndex = 13;
+            this.btnVDCalc.Text = "计算";
+            this.btnVDCalc.UseVisualStyleBackColor = true;
+            this.btnVDCalc.Click += new System.EventHandler(this.btnVDCalc_Click);
+            // 
+            // txtVDVolBias
+            // 
+            this.txtVDVolBias.Location = new System.Drawing.Point(86, 61);
+            this.txtVDVolBias.Name = "txtVDVolBias";
+            this.txtVDVolBias.Size = new System.Drawing.Size(100, 21);
+            this.txtVDVolBias.TabIndex = 12;
+            this.txtVDVolBias.Text = "0.1";
+            // 
+            // txtVDVolOutput
+            // 
+            this.txtVDVolOutput.Location = new System.Drawing.Point(86, 34);
+            this.txtVDVolOutput.Name = "txtVDVolOutput";
+            this.txtVDVolOutput.Size = new System.Drawing.Size(100, 21);
+            this.txtVDVolOutput.TabIndex = 10;
+            this.txtVDVolOutput.Text = "1.2";
+            // 
+            // txtVDVolInput
+            // 
+            this.txtVDVolInput.Location = new System.Drawing.Point(86, 7);
+            this.txtVDVolInput.Name = "txtVDVolInput";
+            this.txtVDVolInput.Size = new System.Drawing.Size(100, 21);
+            this.txtVDVolInput.TabIndex = 8;
+            this.txtVDVolInput.Text = "3.3";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 37);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(191, 12);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "输出电压：                    V";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(191, 12);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "允许误差：                    V";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(191, 12);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "输入电压：                    V";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::ResistanceSelectionTool.Properties.Resources.VoltageDivider;
+            this.pictureBox2.Location = new System.Drawing.Point(203, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(138, 140);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::ResistanceSelectionTool.Properties.Resources.BoostCircuit;
+            this.pictureBox1.Location = new System.Drawing.Point(192, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(164, 149);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "输出结果：";
+            // 
+            // radioVDVin
+            // 
+            this.radioVDVin.AutoSize = true;
+            this.radioVDVin.Location = new System.Drawing.Point(86, 89);
+            this.radioVDVin.Name = "radioVDVin";
+            this.radioVDVin.Size = new System.Drawing.Size(41, 16);
+            this.radioVDVin.TabIndex = 15;
+            this.radioVDVin.Tag = "0";
+            this.radioVDVin.Text = "Vin";
+            this.radioVDVin.UseVisualStyleBackColor = true;
+            // 
+            // radioVDVout
+            // 
+            this.radioVDVout.AutoSize = true;
+            this.radioVDVout.Checked = true;
+            this.radioVDVout.Location = new System.Drawing.Point(133, 89);
+            this.radioVDVout.Name = "radioVDVout";
+            this.radioVDVout.Size = new System.Drawing.Size(47, 16);
+            this.radioVDVout.TabIndex = 15;
+            this.radioVDVout.TabStop = true;
+            this.radioVDVout.Tag = "1";
+            this.radioVDVout.Text = "Vout";
+            this.radioVDVout.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -491,13 +635,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numResCount)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxOutput.ResumeLayout(false);
             this.groupBoxOutput.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -537,6 +684,18 @@
         private System.Windows.Forms.TextBox txtVolBias;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnVDCalc;
+        private System.Windows.Forms.TextBox txtVDVolBias;
+        private System.Windows.Forms.TextBox txtVDVolOutput;
+        private System.Windows.Forms.TextBox txtVDVolInput;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.RadioButton radioVDVout;
+        private System.Windows.Forms.RadioButton radioVDVin;
+        private System.Windows.Forms.Label label11;
     }
 }
 

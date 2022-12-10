@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResBoostMode.cs" />
     <Compile Include="ResCalc.cs" />
+    <Compile Include="ResVoltageDivider.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BoostCircuit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="VoltageDivider.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
