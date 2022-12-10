@@ -31,6 +31,7 @@ namespace ResistanceSelectionTool
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
+            this.Text += @" V" + System.Windows.Forms.Application.ProductVersion.ToString();
             FilePathResList = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             FileNameResList = @"Res.list";
             comboBoxResUnit.SelectedIndex = 0;
