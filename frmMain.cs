@@ -157,15 +157,42 @@ namespace ResistanceSelectionTool
             string ret;
             if (value > 1000000)
             {
-                ret = string.Format("{0:#.###}MΩ", value / 1000000);
+                ret = string.Format("{0:0.###}MΩ", value / 1000000);
             }
             else if (value > 1000)
             {
-                ret = string.Format("{0:#.###}KΩ", value / 1000);
+                ret = string.Format("{0:0.###}KΩ", value / 1000);
             }
             else
             {
-                ret = string.Format("{0:#.###}Ω", value);
+                ret = string.Format("{0:0.###}Ω", value);
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// 电流格式化
+        /// </summary>
+        /// <param name="value">电流大小</param>
+        /// <returns></returns>
+        private string CurValueFormat(double value)
+        {
+            string ret;
+            if (value < 0.000001)
+            {
+                ret = string.Format("{0:0.###}nA", value * 1000 * 1000 * 1000);
+            }
+            else if (value < 0.001)
+            {
+                ret = string.Format("{0:0.###}uA", value * 1000 * 1000);
+            }
+            else if(value < 1)
+            {
+                ret = string.Format("{0:0.###}mA", value * 1000);
+            }
+            else
+            {
+                ret = string.Format("{0:0.###}A", value);
             }
             return ret;
         }
@@ -302,24 +329,26 @@ namespace ResistanceSelectionTool
                         break;
                     case EnumResCalcStatus.Done:
                         int len = value.Length;
-                        if (len >= 3)
+                        if (len >= 4)
                         {
                             string log = "分压电阻计算结果：";
-                            log += string.Format("RW1={0:#.###}， ", ResValueFormat(value[0]));
-                            log += string.Format("RW2={0:#.###}， ", ResValueFormat(value[1]));
+                            log += string.Format("RW1={0}， ", ResValueFormat(value[0]));
+                            log += string.Format("RW2={0}， ", ResValueFormat(value[1]));
                             if (resVoltageDivider.IsResultVolOut)
                             {
-                                log += string.Format("Vout={0:#.###}V， ", (value[2]));
+                                log += string.Format("Vout={0:0.###}V， ", value[2]);
                             }
                             else
                             {
-                                log += string.Format("Vin={0:#.###}V， ", (value[2]));
+                                log += string.Format("Vin={0:0.###}V， ", value[2]);
                             }
+                            log += string.Format("I={0}。", CurValueFormat(value[3]));
                             txtOutput.AppendText(log + "\r\n");
                         }
                         if (percent >= 100)
                         {
                             txtOutput.AppendText(message);
+                            GC.Collect();
                         }
                         break;
                     case EnumResCalcStatus.Wait:

@@ -89,7 +89,7 @@ namespace ResistanceSelectionTool
             {
                 foreach (double RW2 in ArrayResData)
                 {
-                    double vol;
+                    double vol, cur;
                     if (IsResultVolOut)
                     {
                         vol = RW1 / (RW1 + RW2) * VolIn;
@@ -98,11 +98,12 @@ namespace ResistanceSelectionTool
                     {
                         vol = (RW1 + RW2)/ RW1 * VolOut;
                     }
+                    cur = VolIn / (RW1 + RW2);
                     cntPercent++;
                     if (vol <= volMax && vol >= volMin)
                     {
                         double percent = cntPercent / sumPercent * 100;
-                        EventResVoltageDividerReturn?.Invoke(EnumResCalcStatus.Done, "阶段性完成", percent, new double[] { RW1, RW2, vol });
+                        EventResVoltageDividerReturn?.Invoke(EnumResCalcStatus.Done, "阶段性完成", percent, new double[] { RW1, RW2, vol, cur });
                         cntResult++;
                     }
                 }
