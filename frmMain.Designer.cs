@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.groupBoxResSelect = new System.Windows.Forms.GroupBox();
             this.btnListDefault = new System.Windows.Forms.Button();
             this.btnListRevSelect = new System.Windows.Forms.Button();
@@ -623,6 +624,7 @@
             this.ClientSize = new System.Drawing.Size(683, 456);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBoxResSelect);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 320);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
